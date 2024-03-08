@@ -1,0 +1,53 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtual Environments
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Compiled files
+*.pyo
+*.pyd
+
+# Environment variables
+*.env
+
+# Node.js
+node_modules/
+
+# Coverage
+*.coverage
+.coverage.*
+htmlcov/
+
+# Logs
+logs/
+
+# Configuration files
+logging.ini
+
+# Translations
+*.mo
+*.pot
+
+# Sublime Text
+*.sublime-workspace
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# VirtualBox
+*.vdi
+*.vbox/
