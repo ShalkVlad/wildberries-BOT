@@ -14,23 +14,20 @@ class RequestHistory(Base):
     article = Column(String)
 
 
-# Инициализируйте базу данных
 engine = create_engine('postgresql://postgres:2705@localhost:5432/Art')
 Base.metadata.create_all(engine)
 
-# Создайте сессию
 Session = sessionmaker(bind=engine)
 session = Session()
 
 
 def get_data():
-    print("Fetching data from the database...")  # Отладочное сообщение
+    print("Fetching data from the database...")
     data = session.query(RequestHistory).order_by(RequestHistory.request_time.desc()).limit(5).all()
-    print("Data from the database:", data)  # Отладочное сообщение
+    print("Data from the database:", data)
     return [f"User ID: {entry.user_id}, Time: {entry.request_time}, Article: {entry.article}" for entry in data]
 
 
-# Коммитим изменения (сохраняем запрос в базу данных)
 session.commit()
 
 print("Request history saved successfully!")
