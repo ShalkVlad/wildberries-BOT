@@ -14,7 +14,7 @@ class RequestHistory(Base):
     article = Column(String)
 
 
-engine = create_engine('postgresql://postgres:2705@localhost:5432/Art')
+engine = create_engine('postgresql://postgres:2705@db:5432/Art')
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)

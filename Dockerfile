@@ -1,11 +1,24 @@
-FROM python:3.9-slim
+# Используем базовый образ Python
+FROM python:3.9
 
-COPY requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# Устанавливаем переменную окружения для отображения вывода в терминале
+ENV PYTHONUNBUFFERED=1
 
-COPY . /app
+# Устанавливаем рабочую директорию в контейнере
 WORKDIR /app
 
-ENV BOT_TOKEN=your_bot_token_here
+# Копируем файлы requirements.txt и .env в контейнер
+COPY requirements.txt ./
+COPY .env ./
 
+# Устанавливаем зависимости Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Добавляем установку psycopg2-binary
+RUN pip install psycopg2-binary
+
+# Копируем все файлы проекта в контейнер
+COPY . .
+
+# Запускаем бот
 CMD ["python", "bot.py"]
