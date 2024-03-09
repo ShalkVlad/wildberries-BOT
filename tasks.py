@@ -55,7 +55,9 @@ def format_inf(product_info: dict):
            f"Артикул: {product_info['article']}\n" \
            f"Цена: {price} руб.\n" \
            f"Рейтинг: {product_info['rating']}\n" \
-           f"Количество: {product_info['quantity']}"
+           f"Количество: {product_info['quantity']}"\
+            f"Количество всего: {product_info['quantity_all_warehouses']}"
+
 
 
 async def notification(chat_id: int):
